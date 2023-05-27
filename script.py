@@ -41,11 +41,17 @@ def scrabbleScore(word):
         }
     ]
     
+    for letter in search_word:
+        for i in letter_scores:
+            if letter in i['letters']:
+                total_score += i['point_value']
+    
+    return total_score
     
     
-    
-    
-    
-    
-scrabbleScore('FIZZBUZZ')
-scrabbleScore('')
+# TEST CASES 👇
+
+scrabbleScore('FIZZBUZZ') # returns 49
+scrabbleScore('') # returns 'Please input a valid word'
+scrabbleScore('bRaZiL') # returns 17
+scrabbleScore('1600') # returns 0
